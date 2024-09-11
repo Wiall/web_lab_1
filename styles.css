@@ -3,11 +3,11 @@
     font-family: fantasy;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Забезпечує кращий контроль розміру елементів */
+    box-sizing: border-box;
 }
 
 html, body {
-    height: 100%; /* Забезпечує повний ріст для кореневих елементів */
+    height: 100%;
     margin: 0;
     background-color: rgb(234, 223, 221);
 }
@@ -42,19 +42,19 @@ p {
 
 .sidebar ol {
     padding: 0 20px;
-    list-style-type: none; /* Видаляємо маркери списку */
+    list-style-type: none;
     margin: 0;
 }
 
 .sidebar ol li {
-    margin-bottom: 20px; /* Відступ між елементами списку */
-    font-size: 1.4em; /* Збільшення розміру шрифту */
+    margin-bottom: 20px;
+    font-size: 1.4em;
 }
 
 .sidebar ol li a {
     text-decoration: none;
     color: #000;
-    display: block; /* Робимо посилання блоковими для кращого контролю */
+    display: block;
 }
 
 .container {
@@ -77,7 +77,7 @@ p {
     background: rgb(255, 211, 129);
     padding: 2em;
     background-image: url('img/img-bg.avif');
-    background-size: cover; /* Вирівнювання фонового зображення */
+    background-size: cover;
 }
 
 .sidebar {
@@ -115,7 +115,7 @@ p {
     right: 0;
     bottom: 0;
     background-image: url('img/img-main-bg.jpg');
-    background-size: cover; /* Забезпечує покриття для фонового зображення */
+    background-size: cover;
     opacity: 0.2;
     z-index: -1;
     border-radius: 5px;
