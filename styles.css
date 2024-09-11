@@ -1,0 +1,136 @@
+* {
+    justify-content: center;
+    font-family: fantasy;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Забезпечує кращий контроль розміру елементів */
+}
+
+html, body {
+    height: 100%; /* Забезпечує повний ріст для кореневих елементів */
+    margin: 0;
+    background-color: rgb(234, 223, 221);
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 
+        -1px -1px 0 #f1f1f1,  
+         1px -1px 0 #f1f1f1,
+        -1px  1px 0 #f1f1f1,
+         1px  1px 0 #f1f1f1;
+}
+
+p {
+    padding: 0px 10px 5px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.headers {
+    color: rgb(0, 0, 0);
+    border-width: 5px;
+    font-size: 2.5em;
+    flex-shrink: 0;
+    text-shadow: 
+        -1px -1px 0 #f1f1f1,  
+         1px -1px 0 #f1f1f1,
+        -1px  1px 0 #f1f1f1,
+         1px  1px 0 #f1f1f1;
+}
+
+.sidebar ol {
+    padding: 0 20px;
+    list-style-type: none; /* Видаляємо маркери списку */
+    margin: 0;
+}
+
+.sidebar ol li {
+    margin-bottom: 20px; /* Відступ між елементами списку */
+    font-size: 1.4em; /* Збільшення розміру шрифту */
+}
+
+.sidebar ol li a {
+    text-decoration: none;
+    color: #000;
+    display: block; /* Робимо посилання блоковими для кращого контролю */
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    gap: 5px;
+    margin: 14px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    grid-template-areas: 
+        "header header header header"
+        "sidebar page page upper"
+        "sidebar page page down"
+        "sidebar footer footer footer";
+}
+
+.header {
+    grid-area: header;
+    text-align: right;
+    background: rgb(255, 211, 129);
+    padding: 2em;
+    background-image: url('img/img-bg.avif');
+    background-size: cover; /* Вирівнювання фонового зображення */
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 20px;
+    border: 2px solid #000;
+}
+
+.footer {
+    grid-area: footer;
+    background: rgb(255, 244, 213);
+    padding: 20px 20px;
+    border: 2px solid #000;
+}
+
+.page {
+    grid-area: page;
+    position: relative;
+    padding: 50px 20px;
+    border: 2px solid #000;
+    background: rgb(255, 248, 248);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/img-main-bg.jpg');
+    background-size: cover; /* Забезпечує покриття для фонового зображення */
+    opacity: 0.2;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.upper {
+    grid-area: upper;
+    align-self: stretch;
+    border: 2px solid #000;
+    padding: 10px 4px;
+    overflow-y: auto;
+}
+
+.down {
+    grid-area: down;
+    align-self: stretch;
+    border: 2px solid #000;
+}
