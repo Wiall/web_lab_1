@@ -76,7 +76,7 @@ p {
     text-align: right;
     background: rgb(255, 211, 129);
     padding: 2em;
-    background-image: url('img/img-bg.avif');
+    background-image: url('img/img-bg.jpg');
     background-size: cover;
 }
 
@@ -102,23 +102,12 @@ p {
     position: relative;
     padding: 50px 20px;
     border: 2px solid #000;
-    background: rgb(255, 248, 248);
+        background-image: url('img/img-main-bg.png');
+    background-attachment: fixed;
+    background-size: auto;
     z-index: 1;
     overflow-y: auto;
-}
-
-.page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('img/img-main-bg.jpg');
-    background-size: cover;
-    opacity: 0.2;
-    z-index: -1;
-    border-radius: 5px;
+        border-radius: 5px;
 }
 
 .upper {
