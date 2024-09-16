@@ -1,0 +1,42 @@
+/* Основні стилі для sidebar */
+#side {
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+/* Приховування sidebar на мобільних пристроях */
+@media screen and (max-width: 768px) {
+    #side {
+        width: 200px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #f1f1f1;
+        transform: translateX(-100%);
+    }
+    
+    /* Коли sidebar активний (відкритий) */
+    #side.active {
+        transform: translateX(0);
+    }
+
+    /* Стиль для кнопки, що відкриває sidebar */
+    .toggle-sidebar {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Приховати текст sidebar при вузькій ширині */
+    #side .txt {
+        display: none;
+    }
+}

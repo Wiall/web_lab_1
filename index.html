@@ -3,12 +3,18 @@
 <head>
     <title>Recipes Collection</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="adaptive.css">
+
 </head>
 <body>
     <div class="container">    
         <div class="header">
             <h1 class="headers">Recipes</h1>
         </div>
+        <!-- Кнопка для відкриття sidebar -->
+        <button class="toggle-sidebar">☰</button>
+        
+        <!-- Sidebar -->
         <div class="sidebar">
             <ol>
                 <li style="font-size: 170%;"><a href="index.html">Main Menu</a></li>
@@ -42,6 +48,12 @@
             <h1>You can do it!</h1>
         </div>
     </div>
+    <!-- JavaScript для показу/приховування sidebar -->
+    <script>
+        document.querySelector('.toggle-sidebar').addEventListener('click', function() {
+            document.querySelector('#side').classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
