@@ -15,11 +15,19 @@
             "sidebar page page down"
             "sidebar footer footer footer";
     }
+
+    .page {
+overflow-y: auto;
+        /* height: 100%; Займаємо доступну висоту в контейнері */
+    }
+    .upper{
+        overflow-y: auto;
+    }
 }
 
 @media (max-width: 760px) {
     .container {
-        height: 180vh; /* Забезпечуємо, що контейнер займає всю висоту екрану */
+        /* height: 320vh; */
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -37,18 +45,16 @@
     }
 
     .page {
-        padding: 10px;
-        overflow-y: auto; /* Дозволяємо скрол всередині сторінки, якщо контент перевищує розмір */
+        padding: 30px 40px;
         /* height: 100%; Займаємо доступну висоту в контейнері */
     }
 
     .upper {
         overflow-y: hidden; /* Прибираємо скрол для верхнього блоку */
-        max-height: 20vh; /* Встановлюємо максимальну висоту для верхнього блоку */
     }
 
     .header {
-        max-height: 15vh; /* Встановлюємо висоту для хедера */
+        max-height: 20vh; /* Встановлюємо висоту для хедера */
         overflow: hidden;
     }
 
