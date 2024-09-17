@@ -28,6 +28,11 @@ p {
     font-size: 16px;
 }
 
+.subtitle{
+    text-align: left;
+    padding-bottom: 5px;
+}
+
 .headers {
     color: rgb(0, 0, 0);
     border-width: 5px;
@@ -57,19 +62,9 @@ p {
     display: block;
 }
 
-/* .container {
-    height: 100vh;
-    display: grid;
-    gap: 5px;
-    margin: 14px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 2fr 2fr 1fr;
-    grid-template-areas: 
-        "header header header header"
-        "sidebar page page upper"
-        "sidebar page page down"
-        "sidebar footer footer footer";
-} */
+.sidebar ol li.choosed{
+    font-size: 170%;
+}
 
 .header {
     grid-area: header;
@@ -120,4 +115,25 @@ p {
     grid-area: down;
     align-self: stretch;
     border: 2px solid #000;
+}
+
+
+.recipe-image {
+    margin: auto;
+    display: block;
+    width: 80%;
+    padding: 5px;
+}
+
+.down-image{
+    margin: auto;
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+
+.page > .map-image{
+    width: 100%;
+    max-width: 1280px;
+    padding-top: 30px;
 }
