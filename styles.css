@@ -12,60 +12,6 @@ html, body {
     background-color: rgb(234, 223, 221);
 }
 
-h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    text-shadow: 
-        -1px -1px 0 #f1f1f1,  
-         1px -1px 0 #f1f1f1,
-        -1px  1px 0 #f1f1f1,
-         1px  1px 0 #f1f1f1;
-}
-
-p {
-    padding: 0px 10px 5px;
-    text-align: left;
-    font-size: 16px;
-}
-
-.subtitle{
-    text-align: left;
-    padding-bottom: 5px;
-}
-
-.headers {
-    color: rgb(0, 0, 0);
-    border-width: 5px;
-    font-size: 2.5em;
-    flex-shrink: 0;
-    text-shadow: 
-        -1px -1px 0 #f1f1f1,  
-         1px -1px 0 #f1f1f1,
-        -1px  1px 0 #f1f1f1,
-         1px  1px 0 #f1f1f1;
-}
-
-.sidebar ol {
-    padding: 0 20px;
-    list-style-type: none;
-    margin: 0;
-}
-
-.sidebar ol li {
-    margin-bottom: 20px;
-    font-size: 1.4em;
-}
-
-.sidebar ol li a {
-    text-decoration: none;
-    color: #000;
-    display: block;
-}
-
-.sidebar ol li.choosed{
-    font-size: 170%;
-}
-
 .header {
     grid-area: header;
     text-align: right;
@@ -115,25 +61,4 @@ p {
     grid-area: down;
     align-self: stretch;
     border: 2px solid #000;
-}
-
-
-.recipe-image {
-    margin: auto;
-    display: block;
-    width: 80%;
-    padding: 5px;
-}
-
-.down-image{
-    margin: auto;
-    display: block;
-    width: 100%;
-    padding: 5px;
-}
-
-.page > .map-image{
-    width: 100%;
-    max-width: 1280px;
-    padding-top: 30px;
 }
