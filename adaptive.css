@@ -1,42 +1,64 @@
-/* Основні стилі для sidebar */
-#side {
-    width: 200px;
-    transition: transform 0.3s ease;
+@media (min-width: 1200px){
+
+}
+@media (min-width: 761px) {
+    .container {
+        height: 100vh;
+        display: grid;
+        gap: 5px;
+        margin: 14px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 2fr 2fr 1fr;
+        grid-template-areas: 
+            "header header header header"
+            "sidebar page page upper"
+            "sidebar page page down"
+            "sidebar footer footer footer";
+    }
 }
 
-/* Приховування sidebar на мобільних пристроях */
-@media screen and (max-width: 768px) {
-    #side {
-        width: 200px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: #f1f1f1;
-        transform: translateX(-100%);
-    }
-    
-    /* Коли sidebar активний (відкритий) */
-    #side.active {
-        transform: translateX(0);
+@media (max-width: 760px) {
+    .container {
+        height: 180vh; /* Забезпечуємо, що контейнер займає всю висоту екрану */
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 14px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 0.5fr 1fr 3fr 1fr 1fr 1fr;
+        grid-template-areas: 
+            "header header header"
+            "sidebar sidebar sidebar"
+            "upper upper upper"
+            "page page page"
+            "down down down"
+            "footer footer footer";
+        overflow: hidden; /* Прибираємо зайві скроли */
     }
 
-    /* Стиль для кнопки, що відкриває sidebar */
-    .toggle-sidebar {
-        display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        background-color: #333;
-        color: white;
-        border: none;
+    .page {
         padding: 10px;
-        font-size: 20px;
-        cursor: pointer;
+        overflow-y: auto; /* Дозволяємо скрол всередині сторінки, якщо контент перевищує розмір */
+        /* height: 100%; Займаємо доступну висоту в контейнері */
     }
 
-    /* Приховати текст sidebar при вузькій ширині */
-    #side .txt {
-        display: none;
+    .upper {
+        overflow-y: hidden; /* Прибираємо скрол для верхнього блоку */
+        max-height: 20vh; /* Встановлюємо максимальну висоту для верхнього блоку */
+    }
+
+    .header {
+        max-height: 15vh; /* Встановлюємо висоту для хедера */
+        overflow: hidden;
+    }
+
+    .down {
+        overflow-y: hidden; /* Прибираємо скрол для нижнього блоку */
+        min-height: fit-content;
+    }
+
+    .sidebar {
+        max-height: 50vh; /* Обмежуємо висоту сайдбара */
+        overflow-y: auto; /* Дозволяємо скрол, якщо контент занадто великий */
     }
 }
