@@ -47,9 +47,12 @@ html, body {
     left: 0;
     width: 20%;
     background-color: #f1f1f1;
+    align-content: center;
+    text-align: right;
     padding: 20px;
     border: 2px solid #000;
 }
+
 
 .upper {
     position: absolute;

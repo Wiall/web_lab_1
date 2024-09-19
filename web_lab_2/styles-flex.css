@@ -1,0 +1,135 @@
+* {
+    justify-content: center;
+    font-family: fantasy;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: rgb(234, 223, 221);
+}
+.headers {
+    color: rgb(0, 0, 0);
+    border-width: 5px;
+    border: #f1f1f1;
+    font-size: 2.5em;
+    
+    /* Обведення тексту */
+    text-shadow: 
+        -1px -1px 0 #f1f1f1,  
+         1px -1px 0 #f1f1f1,
+        -1px  1px 0 #f1f1f1,
+         1px  1px 0 #f1f1f1;
+}
+
+.sidebar ol {
+    min-width: 300px;
+    padding: 0;
+    text-align: right;
+    list-style-type: none;
+}
+
+.sidebar ol li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.sidebar ol li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar ol li a:hover {
+    text-decoration: underline;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.header {
+    text-align: right;
+    background: rgb(255, 211, 129);
+    padding: 2em;
+    flex-shrink: 0;
+    background-image: url('img/img-bg.jpg');
+    background-size: cover;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 4em);
+}
+
+.flex-container > .main {
+    flex: 3 1 0;
+    display: flex;
+    flex-direction: column;
+    top: 10vh;
+    height: 100%;
+    padding: 5px 5px;
+}
+
+.flex-container > .sidebar {
+    flex: 1 1 0;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+    height: 100%;
+    border: 2px solid #000;
+    margin: 5px;
+}
+
+.main > .content {
+    flex: 2 1 0;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.main > .footer {
+    background: rgb(255, 244, 213);
+    height: 100px;
+    flex-shrink: 0;
+    border: 2px solid #000;
+    margin-top: 5px;
+}
+
+.content > .page {
+    background: rgb(193, 182, 255);
+    padding: 20px 0;
+    flex: 2 1 0;
+    height: 100%;
+    background-image: url('img/img-main-bg.png');
+    background-attachment: fixed;
+    background-size: auto;
+    border: 2px solid #000;
+    overflow-y: auto;
+}
+
+.content > .rightbar {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+.rightbar > .upper, .rightbar > .down {
+    flex: 1 1 0;
+    align-self: stretch;
+    border: 2px solid #000;
+    height: 50%;
+    margin-left: 5px;
+}
+
+.rightbar > .upper {
+    margin-bottom: 5px;
+}

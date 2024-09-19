@@ -1,12 +1,14 @@
-@media (min-width: 1200px){
+@media (min-width: 1000px){
 
 }
 @media (min-width: 761px) {
+
     .container {
         height: 100vh;
         display: grid;
         gap: 5px;
         margin: 14px;
+        /* font-size: 12px; */
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 1fr 2fr 2fr 1fr;
         grid-template-areas: 
@@ -17,17 +19,18 @@
     }
 
     .page {
-overflow-y: auto;
-        /* height: 100%; Займаємо доступну висоту в контейнері */
+        overflow-y: auto;
     }
     .upper{
         overflow-y: auto;
+    } 
+    p{
+        font-size: 14px;
     }
 }
 
 @media (max-width: 760px) {
     .container {
-        /* height: 320vh; */
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -41,30 +44,36 @@ overflow-y: auto;
             "page page page"
             "down down down"
             "footer footer footer";
-        overflow: hidden; /* Прибираємо зайві скроли */
+        overflow-y: visible;
     }
 
     .page {
         padding: 30px 40px;
-        /* height: 100%; Займаємо доступну висоту в контейнері */
     }
 
     .upper {
-        overflow-y: hidden; /* Прибираємо скрол для верхнього блоку */
+        overflow-y:visible;;
     }
-
+    .quote {
+        font-size: 8px;
+    }
     .header {
-        max-height: 20vh; /* Встановлюємо висоту для хедера */
+        max-height: 20vh;
         overflow: hidden;
+        font-size: 12px;
     }
 
     .down {
-        overflow-y: hidden; /* Прибираємо скрол для нижнього блоку */
+        overflow-y: hidden;
         min-height: fit-content;
     }
 
     .sidebar {
-        max-height: 50vh; /* Обмежуємо висоту сайдбара */
-        overflow-y: auto; /* Дозволяємо скрол, якщо контент занадто великий */
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    p{
+        font-size: 12px;
     }
 }
