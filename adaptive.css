@@ -52,7 +52,11 @@
     }
 
     .upper {
-        overflow-y:visible;;
+        overflow-y:visible;
+        
+    }
+    .upper ul{
+        list-style-type: none;
     }
     .quote {
         font-size: 8px;
