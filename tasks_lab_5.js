@@ -37,31 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //-----------------------------------------test-----------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
-    // Спроба збереження cookies
-    document.cookie = 'simpleTest=TestValue; path=/; expires=' + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
-
-    // Перевірка cookies у консолі
-    if (document.cookie) {
-        console.log('Збережені cookies:', document.cookie);
-    } else {
-        console.log('Cookies не збереглися');
-    }
-});
 
 // ---------------------------task 3--------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-    // Функція для перевірки наявності cookies
-    function checkCookieExists(cookieName) {
-        return document.cookie.split(';').some(cookie => cookie.trim().startsWith(cookieName + '='));
-    }
-    
-    // Використання
-    if (checkCookieExists('minCount')) {
-        alert('Cookie "minCount" існує.');
-    } else {
-        alert('Cookie "minCount" не знайдено.');
-    }
+
     //location.reload();
 
     // Перевірка наявності cookies при завантаженні сторінки
@@ -97,12 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Збереження результату в cookies
                 document.cookie = 'minCount=' + minCount + '; path=/; expires=' + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString() + '; SameSite=Lax';
-                // Використання
-if (checkCookieExists('minCount')) {
-    alert('Cookie "minCount" існує.');
-} else {
-    alert('Cookie "minCount" не знайдено.');
-}
+
                 // Відображення діалогового вікна з результатом
                 alert('Кількість мінімальних чисел: ' + minCount);
             } else {
