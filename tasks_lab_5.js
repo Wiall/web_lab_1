@@ -56,9 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.cookie = 'minCount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
             alert('Cookies видалено.');
-
-            // Перезавантаження сторінки
-            location.reload();
         }
     } else {
         // Додаємо обробку натискання кнопки відправки форми
