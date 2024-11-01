@@ -40,8 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ---------------------------task 3--------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-
-    //location.reload();
+    // Функція для перевірки наявності cookies
+    function checkCookieExists(cookieName) {
+        return document.cookie.split(';').some(cookie => cookie.trim().startsWith(cookieName + '='));
+    }
 
     // Перевірка наявності cookies при завантаженні сторінки
     if (checkCookieExists('minCount')) {
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Показ діалогового вікна із збереженим результатом
         if (confirm('Збережена інформація: кількість мінімальних чисел = ' + minCount + '. Після натискання "ОК" дані будуть видалені.')) {
             // Видалення cookies
-            document.cookie = 'minCount=' + minCount + '; path=/; expires=' + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = 'minCount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
             alert('Cookies видалено.');
 
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var minCount = numArray.filter(num => num === minValue).length;
 
                 // Збереження результату в cookies
-                document.cookie = 'minCount=' + minCount + '; path=/; expires=' + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString() + '; SameSite=Lax';
+                document.cookie = 'minCount=' + minCount + '; path=/; expires=' + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
 
                 // Відображення діалогового вікна з результатом
                 alert('Кількість мінімальних чисел: ' + minCount);
