@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
     pageBlock.appendChild(resultParagraph);
 });
 
-//-----------------------------------------test-----------------------------------------
-
 // ---------------------------task 3--------------------------------
 document.addEventListener('DOMContentLoaded', function() {
     // Функція для перевірки наявності cookies
@@ -84,4 +82,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ---------------------------task 4--------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+        console.log(document.getElementById('color')); // Перевірка наявності елемента
+    console.log(document.getElementById('submitColor')); // Перевірка наявності елемента
+    const pageBlock = document.getElementById('page');
+    const colorInput = document.getElementById('color');
+    const colorButton = document.getElementById('submitColor');
+
+    // Відновлення кольору тексту з localStorage
+    const savedColor = localStorage.getItem('textColor');
+    if (savedColor) {
+        pageBlock.style.color = savedColor; // Застосування збереженого кольору
+    }
+
+    // Зміна кольору тексту при виборі нового кольору
+    colorButton.addEventListener('click', function() {
+        const selectedColor = colorInput.value;
+        pageBlock.style.color = selectedColor; // Застосування вибраного кольору
+        localStorage.setItem('textColor', selectedColor); // Збереження кольору в localStorage
+    });
+});
+
+// ---------------------------task 5--------------------------------
 
