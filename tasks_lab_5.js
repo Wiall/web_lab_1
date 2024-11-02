@@ -1,80 +1,60 @@
 // ---------------------------task 1--------------------------------
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Отримання елементів
     var upperBlock = document.querySelector('.upper');
     var downBlock = document.querySelector('.down');
 
-    // Збереження вмісту у змінних
     var upperContent = upperBlock.innerHTML;
     var downContent = downBlock.innerHTML;
 
-    // Обмін вмістом між блоками
     upperBlock.innerHTML = downContent;
     downBlock.innerHTML = upperContent;
 });
 
 // ---------------------------task 2--------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-    // Значення змінних для обчислення площі трикутника
-    var base = 10; // довжина основи трикутника
-    var height = 5; // висота трикутника
+    var base = 10;
+    var height = 5;
 
-    // Функція для обчислення площі трикутника
     function calculateTriangleArea(base, height) {
         return 0.5 * base * height;
     }
 
-    // Обчислення площі
     var area = calculateTriangleArea(base, height);
 
-    // Додавання результату до кінця блоку 'page'
     var pageBlock = document.querySelector('.page');
     var resultParagraph = document.createElement('p');
-    resultParagraph.textContent = 'Площа трикутника: ' + area + ' квадратних одиниць';
+    resultParagraph.textContent = 'Triangle area: ' + area;
     
     pageBlock.appendChild(resultParagraph);
 });
 
 // ---------------------------task 3--------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-    // Функція для перевірки наявності cookies
     function checkCookieExists(cookieName) {
         return document.cookie.split(';').some(cookie => cookie.trim().startsWith(cookieName + '='));
     }
 
-    // Перевірка наявності cookies при завантаженні сторінки
     if (checkCookieExists('minCount')) {
-        // Отримання значення з cookies
         var minCount = document.cookie.replace(/(?:(?:^|.*;\s*)minCount\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
-        // Показ діалогового вікна із збереженим результатом
         if (confirm('Збережена інформація: кількість мінімальних чисел = ' + minCount + '. Після натискання "ОК" дані будуть видалені.')) {
-            // Видалення cookies
             document.cookie = 'minCount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
             alert('Cookies видалено.');
         }
     } else {
-        // Додаємо обробку натискання кнопки відправки форми
         document.getElementById('submitBtn').addEventListener('click', function() {
             var input = document.getElementById('numberInput').value;
 
-            // Перетворення введених даних у масив чисел
             var numArray = input.split(',').map(Number);
 
-            // Перевірка, чи введено рівно 10 чисел
             if (numArray.length === 10 && numArray.every(num => !isNaN(num))) {
-                // Знаходження мінімального числа
                 var minValue = Math.min(...numArray);
-
-                // Підрахунок кількості мінімальних чисел
                 var minCount = numArray.filter(num => num === minValue).length;
 
-                // Збереження результату в cookies
                 document.cookie = 'minCount=' + minCount + '; path=/; expires=' + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
 
-                // Відображення діалогового вікна з результатом
                 alert('Кількість мінімальних чисел: ' + minCount);
             } else {
                 alert('Помилка: введіть рівно 10 чисел через кому.');
@@ -85,25 +65,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ---------------------------task 4--------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-        console.log(document.getElementById('color')); // Перевірка наявності елемента
-    console.log(document.getElementById('submitColor')); // Перевірка наявності елемента
+    console.log(document.getElementById('color'));
+    console.log(document.getElementById('submitColor'));
     const pageBlock = document.getElementById('page');
     const colorInput = document.getElementById('color');
     const colorButton = document.getElementById('submitColor');
 
-    // Відновлення кольору тексту з localStorage
     const savedColor = localStorage.getItem('textColor');
     if (savedColor) {
-        pageBlock.style.color = savedColor; // Застосування збереженого кольору
+        pageBlock.style.color = savedColor;
     }
 
-    // Зміна кольору тексту при виборі нового кольору
     colorButton.addEventListener('click', function() {
         const selectedColor = colorInput.value;
-        pageBlock.style.color = selectedColor; // Застосування вибраного кольору
-        localStorage.setItem('textColor', selectedColor); // Збереження кольору в localStorage
+        pageBlock.style.color = selectedColor;
+        localStorage.setItem('textColor', selectedColor);
     });
 });
 
 // ---------------------------task 5--------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+    const blocks = document.querySelectorAll(".container > div.page, .header, .upper, .down, .sidebar, .footer");
+    const listKeyPrefix = "blockList_";
 
+    function addListToBlock(block) {
+        let ul = block.querySelector("ul");
+        if (!ul) {
+            ul = document.createElement("ul");
+            block.appendChild(ul);
+
+            let saveButton = document.createElement("button");
+            saveButton.textContent = "Save list";
+            saveButton.onclick = function () {
+                saveList(block, ul);
+            };
+            block.appendChild(saveButton);
+        }
+
+        let newLi = createListItem();
+        ul.appendChild(newLi);
+    }
+
+    function createListItem() {
+        let li = document.createElement("li");
+        li.textContent = "New element\t";
+        return li;
+    }
+
+    function saveList(block, ul) {
+        let listItems = Array.from(ul.children).map(li => li.textContent);
+        let blockId = block.className || block.id;
+        localStorage.setItem(listKeyPrefix + blockId, JSON.stringify(listItems));
+
+        block.innerHTML = '';
+        block.appendChild(ul);
+
+        alert("Список збережено");
+    }
+
+    blocks.forEach((block) => {
+        block.ondblclick = function (event) {
+            if (!event.target.closest("ul")) {
+                addListToBlock(block);
+            }
+        };
+    });
+
+    window.addEventListener("beforeunload", function () {
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith(listKeyPrefix)) {
+                localStorage.removeItem(key);
+            }
+        });
+    });
+});

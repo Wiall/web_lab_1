@@ -20,6 +20,7 @@ html, body {
     padding: 2em;
     background-image: url('img/img-bg.jpg');
     background-size: cover;
+    overflow-y: auto;
 }
 
 .sidebar {
@@ -29,6 +30,7 @@ html, body {
     flex-direction: column;
     text-align: right;
     border: 2px solid #000;
+    overflow-y: auto;
 }
 
 .footer {
@@ -36,6 +38,7 @@ html, body {
     background: rgb(255, 244, 213);
     padding: 5px 5px;
     border: 2px solid #000;
+    overflow-y: auto;
 }
 
 .page {
@@ -54,10 +57,12 @@ html, body {
     grid-area: upper;
     align-self: stretch;
     border: 2px solid #000;
+    overflow-y: auto;
 }
 
 .down {
     grid-area: down;
     align-self: stretch;
     border: 2px solid #000;
+    overflow-y: auto;
 }

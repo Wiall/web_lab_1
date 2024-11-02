@@ -65,6 +65,10 @@ p {
     font-size: 170%;
 }
 
+ul li{
+    text-decoration: none;
+    list-style: none;
+}
 .recipe-image {
     margin: auto;
     display: block;
